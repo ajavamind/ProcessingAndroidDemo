@@ -1,4 +1,6 @@
 # ProcessingAndroidDemo
+This fork of ProcessingAndroidDemo by Andy Modla adds Android fragment(s).
+
 This demo explains how to embed processing sketch in your own app. For a step by step guide, head over to this wiki - https://github.com/processing/processing-android/wiki/Using-Eclipse-or-Android-Studio-for-Development
 
 ##Screenshots:
