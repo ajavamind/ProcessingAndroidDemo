@@ -1,8 +1,5 @@
 package in.omerjerk.processingdemo.sketch;
 
-import android.app.Activity;
-
-import in.omerjerk.processingdemo.MainActivity;
 import processing.core.PApplet;
 
 /**
@@ -10,9 +7,14 @@ import processing.core.PApplet;
  */
 public class EmptySketch extends PApplet {
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        ((MainActivity) activity).onSectionAttached(1);
-    }
+        public void settings() {
+            // note full screen will make navigation invisible
+        }
+
+        public void setup() {
+        }
+
+        public void draw() {
+        }
+
 }

@@ -12,9 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import in.omerjerk.processingdemo.helper.Helper;
 import in.omerjerk.processingdemo.sketch.Directional;
+import in.omerjerk.processingdemo.sketch.EmptySketch;
 import in.omerjerk.processingdemo.sketch.Particles;
 import in.omerjerk.processingdemo.sketch.Reflection;
+import processing.android.PFragment;
 import processing.core.PApplet;
 
 public class MainActivity extends AppCompatActivity
@@ -75,23 +78,32 @@ public class MainActivity extends AppCompatActivity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
-        Fragment fragment;
+        Fragment fragment = new PFragment();
+        PApplet sketch;
         switch (position) {
             case 0:
-                fragment = new Directional();
+                sketch = new Directional();
+                ((PFragment) fragment).setSketch(sketch);
                 break;
             case 1:
-                fragment = new Reflection();
+                sketch = new Reflection();
+                ((PFragment) fragment).setSketch(sketch);
                 break;
             case 2:
-                fragment = new Particles();
+                sketch = new Particles();
+                ((PFragment) fragment).setSketch(sketch);
                 break;
             case 3:
-                fragment = new PApplet();
+                sketch = new EmptySketch();
+                ((PFragment) fragment).setSketch(sketch);
+                break;
+            case 4: // add Android View fragment
+                fragment = new Helper();
                 break;
             default:
                 throw new UnsupportedOperationException("Invalid position");
         }
+
         fragmentManager.beginTransaction()
                 .replace(R.id.container, fragment)
                 .commit();

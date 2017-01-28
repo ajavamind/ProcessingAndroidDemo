@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:weightSum="1"
+    android:layout_width="match_parent">
+
+    <Switch
+        android:text="Switch"
+        android:layout_width="113dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch1"
+        android:layout_weight="0.06" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="226dp"
+        android:layout_height="wrap_content"
+        android:text="Turn On "
+        android:layout_weight="0.04" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.16" />
+
+    <NumberPicker
+        android:layout_width="337dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberPicker" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK" />
+
+</LinearLayout>

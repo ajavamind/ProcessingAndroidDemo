@@ -31,12 +31,6 @@ public class Directional extends PApplet {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        ((MainActivity) activity).onSectionAttached(0);
-    }
-
-    @Override
     public void settings() {
         size(1000, 1000, P3D);
     }
