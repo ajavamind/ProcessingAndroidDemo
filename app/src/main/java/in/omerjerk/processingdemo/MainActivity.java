@@ -1,5 +1,6 @@
 package in.omerjerk.processingdemo;
 
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +35,22 @@ public class MainActivity extends AppCompatActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+
+    // values shared among sketches and fragments
+    public boolean toggleSwitch = false;
+
+    public boolean isToggleSwitch() {
+        return toggleSwitch;
+    }
+
+    public void setToggleSwitch(boolean toggleSwitch) {
+        this.toggleSwitch = toggleSwitch;
+        //commit preferences on change
+        //final SharedPreferences prefs = getSharedPreferences(PREFERENCES,0);
+        //final SharedPreferences.Editor editor = prefs.edit();
+        //editor.putBoolean("your_key", toggleSwitch);
+        //editor.commit();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +99,7 @@ public class MainActivity extends AppCompatActivity
         PApplet sketch;
         switch (position) {
             case 0:
-                sketch = new Directional();
+                sketch = new Directional(this);
                 ((PFragment) fragment).setSketch(sketch);
                 break;
             case 1:
@@ -165,4 +182,6 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

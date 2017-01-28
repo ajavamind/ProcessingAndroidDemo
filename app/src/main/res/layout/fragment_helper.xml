@@ -9,7 +9,7 @@
     android:layout_width="match_parent">
 
     <Switch
-        android:text="Switch"
+        android:text="Toggle Switch"
         android:layout_width="113dp"
         android:layout_height="wrap_content"
         android:id="@+id/switch1"

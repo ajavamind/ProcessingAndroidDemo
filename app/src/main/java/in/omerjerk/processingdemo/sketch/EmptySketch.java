@@ -7,14 +7,17 @@ import processing.core.PApplet;
  */
 public class EmptySketch extends PApplet {
 
-        public void settings() {
+    @Override
+    public void settings() {
             // note full screen will make navigation invisible
-        }
+    }
 
-        public void setup() {
-        }
+    @Override
+    public void setup() {
+    }
 
-        public void draw() {
-        }
+    @Override
+    public void draw() {
+    }
 
 }

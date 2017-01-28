@@ -10,6 +10,17 @@ import processing.core.PApplet;
  */
 public class Directional extends PApplet {
 
+    MainActivity activity;
+    public Directional(MainActivity activity) {
+        this.activity = activity;
+    }
+
+    @Override
+    public void settings() {
+
+        size(1000, 1000, P3D);
+    }
+
     @Override
     public void setup() {
 //        fullScreen(P3D);
@@ -25,13 +36,15 @@ public class Directional extends PApplet {
         float dirX = (mouseX / PApplet.parseFloat(width) - 0.5f) * 2;
         directionalLight(204, 204, 204, -dirX, -dirY, -1);
         translate(width/2 - 100, height/2, 0);
-        sphere(80);
+        if (activity.isToggleSwitch())
+            box(80);
+        else
+            sphere(80);
         translate(200, 0, 0);
-        sphere(80);
+        if (activity.isToggleSwitch())
+            box(80);
+        else
+            sphere(80);
     }
 
-    @Override
-    public void settings() {
-        size(1000, 1000, P3D);
-    }
 }
