@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity
         PApplet sketch;
         switch (position) {
             case 0:
-                sketch = new Directional(this);
+                sketch = new Directional();
                 ((PFragment) fragment).setSketch(sketch);
                 break;
             case 1:

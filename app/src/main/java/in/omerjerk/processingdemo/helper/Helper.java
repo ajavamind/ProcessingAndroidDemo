@@ -17,11 +17,6 @@ import in.omerjerk.processingdemo.R;
 
 public class Helper extends Fragment {
     MainActivity activity;
-    public Helper() {
-        super();
-        activity = (MainActivity) getActivity();
-    }
-
     Switch toggle;
 
     // The onCreateView method is called when Fragment should create its View object hierarchy,
