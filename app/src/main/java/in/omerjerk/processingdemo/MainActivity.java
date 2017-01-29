@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import in.omerjerk.processingdemo.helper.Helper;
+import in.omerjerk.processingdemo.helper.HelperSketch;
 import in.omerjerk.processingdemo.sketch.Directional;
 import in.omerjerk.processingdemo.sketch.EmptySketch;
 import in.omerjerk.processingdemo.sketch.Particles;
@@ -96,7 +97,9 @@ public class MainActivity extends AppCompatActivity
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
         Fragment fragment = new PFragment();
+        HelperSketch helperFragment = new HelperSketch();
         PApplet sketch;
+        boolean child = false;
         switch (position) {
             case 0:
                 sketch = new Directional();
@@ -117,13 +120,26 @@ public class MainActivity extends AppCompatActivity
             case 4: // add Android View fragment
                 fragment = new Helper();
                 break;
+            case 5: // add Android View fragment with child sketch
+                sketch = new Directional();
+                ((PFragment) fragment).setSketch(sketch);
+                helperFragment.setSketch(fragment);
+                child = true;
+                break;
             default:
                 throw new UnsupportedOperationException("Invalid position");
         }
 
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, fragment)
-                .commit();
+        if (child) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, helperFragment)
+                    .commit();
+        }
+        else {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commit();
+        }
     }
 
     public void onSectionAttached(int number) {

@@ -1,7 +1,8 @@
 package in.omerjerk.processingdemo.helper;
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,16 +16,21 @@ import in.omerjerk.processingdemo.R;
  * Created by Andy Modla on 1/28/2017.
  */
 
-public class Helper extends Fragment {
+public class HelperSketch extends Fragment {
     MainActivity activity;
     Switch toggle;
+    Fragment sketch;
+
+    public void setSketch(Fragment sketch) {
+        this.sketch = sketch;
+    }
 
     // The onCreateView method is called when Fragment should create its View object hierarchy,
     // either dynamically or via XML layout inflation.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
-        return inflater.inflate(R.layout.fragment_helper, parent, false);
+        return inflater.inflate(R.layout.fragment_helpersketch, parent, false);
     }
 
     // This event is triggered soon after onCreateView().
@@ -40,6 +46,13 @@ public class Helper extends Fragment {
                 activity.setToggleSwitch(isChecked);
             }
         });
+        insertNestedFragment();
+    }
+
+    // Embeds the child fragment Processing sketch fragment dynamically
+    private void insertNestedFragment() {
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.replace(R.id.child_fragment_container, sketch).commit();
     }
 
 }
