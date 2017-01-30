@@ -1,8 +1,8 @@
 # ProcessingAndroidDemo
-This fork of ProcessingAndroidDemo adds Android fragment(s) for experimentation.
+This fork of ProcessingAndroidDemo adds Android GUI fragment(s) combined with Processing sketches for experimentation.
 See https://github.com/codepath/android_guides/wiki/Creating-and-Using-Fragments
 
-This code was changed to use Android mode fragments v4 version.
+This code now uses Android mode fragments v4 version.
 
 ORIGINAL:
 This demo explains how to embed processing sketch in your own app. For a step by step guide, head over to this wiki - https://github.com/processing/processing-android/wiki/Using-Eclipse-or-Android-Studio-for-Development

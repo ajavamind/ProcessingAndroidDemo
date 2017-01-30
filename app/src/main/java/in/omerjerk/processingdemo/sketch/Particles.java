@@ -2,6 +2,7 @@ package in.omerjerk.processingdemo.sketch;
 
 import java.util.ArrayList;
 
+import in.omerjerk.processingdemo.MainActivity;
 import processing.core.PApplet;
 import processing.core.PImage;
 import processing.core.PShape;
@@ -14,7 +15,7 @@ public class Particles extends PApplet {
 
     ParticleSystem ps;
     PImage sprite;
-
+    MainActivity mainActivity;
     @Override
     public void settings() {
         size(1000, 1000, P2D);
@@ -22,6 +23,7 @@ public class Particles extends PApplet {
 
     @Override
     public void setup() {
+        mainActivity = (MainActivity)surface.getActivity();
         sprite = loadImage("sprite.png");
         ps = new ParticleSystem(2000);
 
@@ -33,15 +35,18 @@ public class Particles extends PApplet {
 
     @Override
     public void draw() {
-        background(0);
+        if (mainActivity.isToggleSwitch())
+            background(128);
+        else
+            background(0);
         ps.update();
         ps.display();
 
         ps.setEmitter(mouseX,mouseY);
 
         fill(255);
-        textSize(16);
-        text("Frame rate: " + PApplet.parseInt(frameRate),10,20);
+        textSize(48);
+        text("Frame rate: " + PApplet.parseInt(frameRate),10,40);
     }
 
     class Particle {

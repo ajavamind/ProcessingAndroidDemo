@@ -126,6 +126,12 @@ public class MainActivity extends AppCompatActivity
                 helperFragment.setSketch(fragment);
                 child = true;
                 break;
+            case 6: // add Android View fragment with child sketch
+                sketch = new Particles();
+                ((PFragment) fragment).setSketch(sketch);
+                helperFragment.setSketch(fragment);
+                child = true;
+                break;
             default:
                 throw new UnsupportedOperationException("Invalid position");
         }

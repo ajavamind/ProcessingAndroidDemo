@@ -107,7 +107,8 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_particles),
                         "Empty",
                         "Helper",
-                        "HelperSketch"
+                        "HelperSketch",
+                        "HelperParticles"
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
