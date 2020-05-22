@@ -1,12 +1,16 @@
 package in.omerjerk.processingdemo;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
-import android.app.Fragment;
-import android.app.FragmentManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
+
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
@@ -72,6 +76,7 @@ public class MainActivity extends AppCompatActivity
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
 
             /** Called when a drawer has settled in a completely closed state. */
+            @SuppressLint("RestrictedApi")
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 getSupportActionBar().setTitle(mTitle);
@@ -79,6 +84,7 @@ public class MainActivity extends AppCompatActivity
             }
 
             /** Called when a drawer has settled in a completely open state. */
+            @SuppressLint("RestrictedApi")
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 getSupportActionBar().setTitle(mTitle);
@@ -95,7 +101,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = new PFragment();
         HelperSketch helperFragment = new HelperSketch();
         PApplet sketch;
@@ -123,13 +129,13 @@ public class MainActivity extends AppCompatActivity
             case 5: // add Android View fragment with child sketch
                 sketch = new Directional();
                 ((PFragment) fragment).setSketch(sketch);
-                helperFragment.setSketch(fragment);
+                helperFragment.setSketch((PFragment) fragment);
                 child = true;
                 break;
             case 6: // add Android View fragment with child sketch
                 sketch = new Particles();
                 ((PFragment) fragment).setSketch(sketch);
-                helperFragment.setSketch(fragment);
+                helperFragment.setSketch((PFragment)fragment);
                 child = true;
                 break;
             default:

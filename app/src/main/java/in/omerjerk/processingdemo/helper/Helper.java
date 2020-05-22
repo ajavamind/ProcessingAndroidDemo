@@ -10,12 +10,13 @@ import android.widget.Switch;
 
 import in.omerjerk.processingdemo.MainActivity;
 import in.omerjerk.processingdemo.R;
+import processing.android.PFragment;
 
 /**
  * Created by Andy Modla on 1/28/2017.
  */
 
-public class Helper extends Fragment {
+public class Helper extends PFragment {
     MainActivity activity;
     Switch toggle;
 

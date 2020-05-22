@@ -1,8 +1,8 @@
 package in.omerjerk.processingdemo.helper;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,17 +11,18 @@ import android.widget.Switch;
 
 import in.omerjerk.processingdemo.MainActivity;
 import in.omerjerk.processingdemo.R;
+import processing.android.PFragment;
 
 /**
  * Created by Andy Modla on 1/28/2017.
  */
 
-public class HelperSketch extends Fragment {
+public class HelperSketch extends PFragment {
     MainActivity activity;
     Switch toggle;
-    Fragment sketch;
+    PFragment sketch;
 
-    public void setSketch(Fragment sketch) {
+    public void setSketch(PFragment sketch) {
         this.sketch = sketch;
     }
 
