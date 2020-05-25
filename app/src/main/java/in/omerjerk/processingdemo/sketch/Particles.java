@@ -16,9 +16,12 @@ public class Particles extends PApplet {
     ParticleSystem ps;
     PImage sprite;
     MainActivity mainActivity;
+
     @Override
     public void settings() {
-        size(1000, 1000, P2D);
+        size(displayWidth, displayHeight, P3D);
+        fullScreen();
+        smooth();
     }
 
     @Override
